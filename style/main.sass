@@ -1,5 +1,13 @@
 @import 'fonts.sass'
 
+$openSans: 'Open Sans'
+
+$accentColor: #ff8b38
+$semiWhteOpacity: rgba(255,255,255,.5)
+
+@mixin sizing($min,$max,$type)
+	#{$type}: clamp($min, 10vw, $max)
+
 *
 	box-sizing: border-box
 
@@ -26,6 +34,9 @@ ul,
 ol
 	list-style-type: none
 
+body
+	font-family: $openSans
+
 .container
 	max-width: 100%
 	padding: 0 10px
@@ -42,6 +53,44 @@ ol
 		color: transparent
 		background: linear-gradient(red,red)
 		background-clip: text
+
+.heading-underlined
+	position: relative
+	padding-bottom: 30px
+	&::after
+		content: ''
+		position: absolute
+		bottom: 0
+		height: 3px
+		width: 64px
+		background-color: #fff
+		left: calc(50% - 32px)
+	&--accent::after
+		background-color: $accentColor
+	&--left-align::after
+		left: 0
+
+
+.home
+	@include sizing(40px, 110px, padding-top)
+	@include sizing(40px, 110px, padding-bottom)
+	background: url('../img/image-min.jpg') no-repeat center
+	background-size: cover
+	text-align: center
+	&__col-left,
+	&__col-right
+		margin-bottom: 30px
+	&__ttl,
+	&__text,
+	.button,
+	.logo
+		margin-bottom: 30px
+	&__ttl
+		color: #fff
+	&__ttl::after
+		left: calc(50% - 32px)
+	&__text
+		color: $semiWhteOpacity
 
 .main-top
 	padding: 20px 0
