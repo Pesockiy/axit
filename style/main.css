@@ -114,6 +114,43 @@ body {
   left: 0;
 }
 
+.header {
+  height: 120px;
+  background: red;
+}
+.header--shrink {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+}
+.header .nav-wrap {
+  display: none;
+}
+.header .nav-wrap--visible {
+  z-index: 99;
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(rgba(255, 139, 56, 0.95), rgba(255, 139, 56, 0.9));
+}
+.header .nav__list {
+  padding: 30px;
+}
+.header .nav__list-item {
+  margin-bottom: 20px;
+}
+.header .nav__link {
+  margin: 0 18px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
 .home {
   padding-top: clamp(40px, 10vw, 110px);
   padding-bottom: clamp(40px, 10vw, 110px);

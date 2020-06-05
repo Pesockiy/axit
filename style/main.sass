@@ -71,6 +71,35 @@ body
 		left: 0
 
 
+.header
+	height: 120px
+	background: red
+	&--shrink
+		position: fixed
+		top: 0
+		left: 0
+		right: 0
+		height: 30px
+	.nav-wrap
+		display: none
+	.nav-wrap--visible
+		z-index: 99
+		display: block
+		position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background: linear-gradient(rgba($accentColor, .95),rgba($accentColor, .9))
+	.nav__list
+		padding: 30px
+		&-item
+			margin-bottom: 20px
+	.nav__link
+		margin: 0 18px
+		text-decoration: none
+		color: #fff
+		font-size: 20px
 .home
 	@include sizing(40px, 110px, padding-top)
 	@include sizing(40px, 110px, padding-bottom)
