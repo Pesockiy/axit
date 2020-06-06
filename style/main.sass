@@ -72,14 +72,15 @@ body
 
 
 .header
-	height: 120px
-	background: red
+	height: 70px
+	background: #000
+	transition: height .3s
 	&--shrink
 		position: fixed
 		top: 0
 		left: 0
 		right: 0
-		height: 30px
+		height: 40px
 	.nav-wrap
 		display: none
 	.nav-wrap--visible
@@ -100,6 +101,10 @@ body
 		text-decoration: none
 		color: #fff
 		font-size: 20px
+	.logo
+	.logo__img
+		display: block
+		max-width: 100%
 .home
 	@include sizing(40px, 110px, padding-top)
 	@include sizing(40px, 110px, padding-bottom)

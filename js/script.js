@@ -9,7 +9,7 @@ let animatedHeader = (function () {
 		window.addEventListener('scroll', function (event) {
 			if (!scrolling) {
 				scrolling = true;
-				setTimeout(scrollPage, 250);
+				setTimeout(scrollPage, 1);
 			}
 		}, false);
 	}

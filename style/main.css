@@ -115,15 +115,16 @@ body {
 }
 
 .header {
-  height: 120px;
-  background: red;
+  height: 70px;
+  background: #000;
+  transition: height 0.3s;
 }
 .header--shrink {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
+  height: 40px;
 }
 .header .nav-wrap {
   display: none;
@@ -149,6 +150,10 @@ body {
   text-decoration: none;
   color: #fff;
   font-size: 20px;
+}
+.header .logo__img {
+  display: block;
+  max-width: 100%;
 }
 
 .home {
