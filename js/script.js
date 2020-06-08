@@ -1,3 +1,25 @@
+let menuButton = document.querySelector('.menu-hamburger'),
+	body = document.querySelector('body'),
+	navWrap = document.querySelector('.nav-wrap');
+
+
+menuButton.addEventListener('click', function () {
+
+	if (!this.classList.contains('menu-hamburger--open')) {
+
+		this.classList.add('menu-hamburger--open');
+	body.classList.add('overflowYHidden');
+	navWrap.classList.add('nav-wrap--active');
+
+
+	} else {
+	this.classList.remove('menu-hamburger--open');
+		body.classList.remove('overflowYHidden');
+		navWrap.classList.remove('nav-wrap--active');
+	}
+});
+
+
 let animatedHeader = (function () {
 
 	let docElem = document.documentElement,
@@ -32,7 +54,6 @@ let animatedHeader = (function () {
 
 		scrolling = false;
 	}
-
 
 
 	init();

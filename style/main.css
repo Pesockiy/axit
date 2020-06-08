@@ -1,42 +1,42 @@
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Open Sans Bold";
   src: url("../fonts/Bold.woff2") format("woff2");
   src: url("../fonts/Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: "Open Sans";
-  src: url("../fonts/Regular.woff2") format("woff2");
-  src: url("../fonts/Regular.woff") format("woff");
+  font-family: "Open Sans Regular";
+  src: url("../fonts/Open Sans Regular.woff2") format("woff2");
+  src: url("../fonts/Open Sans Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Open Sans SemiBold";
-  src: url("Open Sans SemiBold.woff2") format("woff2");
-  src: url("Open Sans SemiBold.woff") format("woff");
+  src: url("../fonts/Open Sans SemiBold.woff2") format("woff2");
+  src: url("../fonts/Open Sans SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: "Raleway";
-  src: url("Raleway Bold.woff2") format("woff2");
-  src: url("Raleway Bold.woff") format("woff");
+  font-family: "Raleway Bold";
+  src: url("../fonts/Raleway Bold.woff2") format("woff2");
+  src: url("../fonts/Raleway Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway";
-  src: url("Raleway.woff2") format("woff2");
-  src: url("Raleway.woff") format("woff");
+  src: url("../fonts/Raleway.woff2") format("woff2");
+  src: url("../fonts/Raleway.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Raleway Light";
-  src: url("Raleway Light.woff2") format("woff2");
-  src: url("Raleway Light.woff") format("woff");
+  src: url("../fonts/Raleway Light.woff2") format("woff2");
+  src: url("../fonts/Raleway Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
 }
@@ -70,13 +70,39 @@ ol {
   list-style-type: none;
 }
 
-body {
-  font-family: "Open Sans";
+.body {
+  font-family: "Open Sans Regular";
+}
+.body.overflowYHidden {
+  overflow: hidden;
 }
 
 .container {
   max-width: 100%;
   padding: 0 10px;
+  margin: auto;
+}
+
+.h1 {
+  font-family: "Raleway";
+  font-size: clamp(24px, 5vw, 36px);
+}
+
+.btn,
+.tab__link {
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 22px;
+  line-height: 1;
+  text-decoration: none;
+  color: #fff;
+}
+.btn--orange {
+  background-color: #ff8b38;
+  border-radius: 4px;
 }
 
 .socials {
@@ -115,29 +141,44 @@ body {
 }
 
 .header {
-  height: 70px;
-  background: #000;
-  transition: height 0.3s;
+  padding: 20px 0;
+  background-color: #000;
+  transition: padding 0.3s;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
 }
 .header--shrink {
+  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 40px;
+  padding: 10px 0;
 }
 .header .nav-wrap {
   display: none;
+  align-self: center;
 }
-.header .nav-wrap--visible {
-  z-index: 99;
+.header .nav-wrap--active {
   display: block;
   position: fixed;
+  z-index: 999;
+  padding-top: 50px;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  visibility: visible;
   background: linear-gradient(rgba(255, 139, 56, 0.95), rgba(255, 139, 56, 0.9));
+}
+.header .nav-wrap--active .nav__list {
+  display: flex;
+  flex-direction: column;
+}
+.header .nav-wrap--active .nav__list-item {
+  margin-bottom: 20px;
 }
 .header .nav__list {
   padding: 30px;
@@ -152,8 +193,61 @@ body {
   font-size: 20px;
 }
 .header .logo__img {
+  max-width: 70px;
+  height: auto;
+}
+
+.menu-hamburger {
+  position: relative;
+  align-items: center;
+  align-self: center;
+  height: 16px;
+  width: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+.menu-hamburger--open {
+  display: flex;
+}
+.menu-hamburger__line {
+  margin-top: 7px;
+  height: 2px;
+  background-color: #ff8b38;
+  opacity: 1;
+  visibility: visible;
+  transition: all 1s;
+}
+.menu-hamburger::after, .menu-hamburger::before {
+  content: "";
+  position: absolute;
   display: block;
-  max-width: 100%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ff8b38;
+  transition: all 0.3s;
+}
+.menu-hamburger--open .menu-hamburger__line {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  background-color: #fff;
+}
+.menu-hamburger::after {
+  top: 0;
+}
+.menu-hamburger--open::after {
+  top: 0;
+  transform: scaleX(1.62) translateY(8px) rotate(55deg);
+  background-color: #fff;
+}
+.menu-hamburger::before {
+  bottom: 0;
+}
+.menu-hamburger--open::before {
+  top: 0;
+  transform: scaleX(1.62) translateY(8px) rotate(-55deg);
+  background-color: #fff;
 }
 
 .home {
@@ -196,6 +290,61 @@ body {
   font-size: 14px;
 }
 
+.features {
+  padding: clamp(80px, 10vw, 150px) 0 clamp(60px, 10vw, 150px);
+  background-color: #f5f5f5;
+}
+
+.tabs-wrap {
+  display: flex;
+  margin: auto;
+  max-width: 330px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tab {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+.tab__link {
+  height: 50px;
+  width: 33.33%;
+  background-color: #333;
+  border: solid 1px #c7c7c7;
+  color: #fff;
+  transition: background 0.3s;
+}
+.tab__link--active {
+  background-color: #ff8b38;
+}
+
+.tab__content {
+  display: none;
+  flex-direction: column-reverse;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.tab__content--active {
+  display: flex;
+}
+.tab__content-right {
+  margin-top: 30px;
+}
+.tab__content .tab__ttl {
+  margin-bottom: clamp(20px, 2vw, 35px);
+}
+.tab__content .tab__text {
+  margin: 12px 0;
+}
+.tab__content .tab__img {
+  max-width: 100%;
+}
+.tab__content-link {
+  margin-top: clamp(20px, 2vw, 35px);
+}
+
 .footer {
   padding: 15px 0;
   background: #000;
@@ -205,6 +354,45 @@ body {
 }
 .footer .copy {
   margin-top: 15px;
+}
+
+@media screen and (min-width: 767px) {
+  .container {
+    max-width: 1120px;
+  }
+
+  .tabs-wrap {
+    max-width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tab {
+    flex-direction: column;
+    width: 110px;
+    margin-right: clamp(10px, 5vw, 80px);
+  }
+  .tab__link {
+    width: inherit;
+    height: 110px;
+  }
+
+  .tab__content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .tab__content-left, .tab__content-right {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 50%;
+  }
+  .tab__content-left {
+    max-width: 60%;
+  }
+  .tab__content-right {
+    margin-top: 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
