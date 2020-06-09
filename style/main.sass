@@ -6,7 +6,7 @@ $raleway: 'Raleway'
 
 
 $accentColor: #ff8b38
-$semiWhteOpacity: rgba(255,255,255,.5)
+$semiWhteOpacity: rgba(255,255,255,.75)
 
 @mixin sizing($min,$max,$type)
 	#{$type}: clamp($min, 10vw, $max)
@@ -87,17 +87,16 @@ textarea
 
 
 .socials
-	display: -webkit-inline-flex
-	display: -moz-inline-flex
-	display: -ms-inline-flex
-	display: -o-inline-flex
-	display: inline-flex
-	justify-content: space-between
+	display: flex
+	justify-content: space-around
+	&__link:hover &__pic
+		fill: #000
 	&__pic
-		height: 26px
-		color: transparent
-		background: linear-gradient(red,red)
-		background-clip: text
+		height: 100%
+		max-height: 42px
+		max-height: 50px
+		fill: #ccc
+		transition: fill .3s
 
 .heading-underlined
 	position: relative
@@ -158,6 +157,9 @@ textarea
 		text-decoration: none
 		color: #fff
 		font-size: 20px
+		transition: color .3s
+		&:hover
+			color: $accentColor
 	.logo__img
 		max-width: 70px
 		height: auto
@@ -272,10 +274,13 @@ textarea
 
 .main-top
 	padding: 20px 0
-	box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.38)
+	box-shadow: inset 0px -4px 5px -5px rgba(0, 0, 0, 0.58)
 	&__col-left
 		max-width: 370px
 		margin-bottom: 20px
+		margin-left: auto
+		margin-right: auto
+		text-align: center
 	&__ttl
 		font-size: 20px
 	&__text
@@ -350,8 +355,11 @@ textarea
 		margin: 22px 0
 		color: #c3c3c5
 
-.form
+
+.contact__form
 	margin-top: 50px
+
+.form
 	&__col-left
 		//margin-bottom: 20px
 	&__group
@@ -380,21 +388,34 @@ textarea
 
 .footer
 	padding: 15px 0
-	background: #000
+	background-color: #000
 	.container
 		text-align: center
+	&__socials
+		max-width: 325px
+		margin: auto
+		.socials__pic
+			max-height: 24px
+			fill: $semiWhteOpacity
+		.socials__link:hover .socials__pic
+			fill: red
 	.copy
 		margin-top: 15px
+		color: #505050
 
 @media screen and (min-width: 575px)
 	.container
 		max-width: 1140px
 
 	.home
+		&__form
+			margin-top: 0
+		&__ttl::after
+			left: 0
 		.container
 			flex-direction: row
 		&__col-right
-			max-width: 360px
+			max-width: 240px
 		&__col-left
 			margin-right: 30px
 			text-align: left
@@ -427,6 +448,38 @@ textarea
 
 @media screen and (min-width: 767px)
 
+	.header
+		.menu-hamburger
+			display: none
+		.nav
+			&-wrap
+				display: block
+			&__list
+				padding: 0
+				display: inline-flex
+			&__list-item
+				margin-bottom: 0
+			&__link
+				font-size: 14px
+
+	.main-top
+		.container
+			display: flex
+			justify-content: space-between
+		&__col-left
+			max-width: 360px
+			margin-left: 0
+			margin-right: 20px
+			margin-bottom: 0
+			text-align: left
+		&__socials
+			display: inline-flex
+			align-self: center
+			width: calc(100% - 440px)
+
+	.home
+		&__col-right
+			max-width: 360px
 
 	.tabs-wrap
 		max-width: 100%
@@ -456,6 +509,7 @@ textarea
 			margin-top: 0
 
 @media screen and (min-width: 991px)
+
 	.form
 		&__col-left
 			margin-bottom: 0
