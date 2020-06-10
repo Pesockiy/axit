@@ -418,6 +418,73 @@ textarea {
   margin-top: clamp(20px, 2vw, 35px);
 }
 
+.pricing {
+  padding: clamp(50px, 10vw, 100px) 0 clamp(40px, 10vw, 90px);
+  background-color: #f5f5f5;
+}
+.pricing__ttl, .pricing__text {
+  text-align: center;
+}
+.pricing__ttl {
+  margin-bottom: 25px;
+}
+.pricing .cards-wrap {
+  margin-top: clamp(40px, 10vw, 75px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pricing .card {
+  width: 100%;
+  max-width: 344px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.pricing .card:nth-of-type(2) {
+  order: -1;
+}
+.pricing .card__top, .pricing .card__ttl {
+  background-color: #333;
+}
+.pricing .card__ttl {
+  padding: 20px 0;
+  margin-bottom: 1px;
+  border-bottom: 1px solid transparent;
+}
+.pricing .card__top {
+  padding-top: 1px;
+  border-bottom: 6px solid #ff8b38;
+}
+.pricing .card__sub-ttl {
+  padding: 15px 0;
+  font-style: italic;
+  color: #8d8d8d;
+}
+.pricing .card__ttl, .pricing .card__price, .pricing .card__sub-ttl--accent {
+  color: #fff;
+}
+.pricing .card__sub-ttl--accent {
+  padding-bottom: 9px;
+  font-style: normal;
+  font-family: "Open Sans Regular";
+  background-color: #ff8b38;
+}
+.pricing .card__price, .pricing .card__sub-ttl {
+  font-family: "Raleway";
+}
+.pricing .card__price {
+  padding: 10px 0;
+  margin-top: 10px;
+  font-size: 70px;
+}
+.pricing .card__line {
+  padding: 12px;
+  margin-bottom: 1px;
+  background-color: #fff;
+  color: #8e8f92;
+  border-bottom: 1px solid transparent;
+}
+
 .custom {
   padding: clamp(30px, 10vw, 65px) 0 clamp(25px, 10vw, 50px);
   background: url("../img/u25_state0-min.jpg") no-repeat center;
@@ -621,6 +688,17 @@ textarea {
   }
   .tab__content-right {
     margin-top: 0;
+  }
+
+  .pricing .cards-wrap {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .pricing .card:nth-of-type(2) {
+    order: 0;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
 @media screen and (min-width: 991px) {

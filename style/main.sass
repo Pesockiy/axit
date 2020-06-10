@@ -330,6 +330,65 @@ textarea
 		margin-top: clamp(20px, 2vw, 35px)
 
 
+.pricing
+	padding: clamp(50px,10vw,100px) 0 clamp(40px,10vw,90px)
+	background-color: #f5f5f5
+	&__ttl,
+	&__text
+		text-align: center
+	&__ttl
+		margin-bottom: 25px
+	.cards-wrap
+		margin-top: clamp(40px, 10vw, 75px)
+		display: flex
+		flex-direction: column
+		align-items: center
+	.card
+		width: 100%
+		max-width: 344px
+		margin-bottom: 30px
+		text-align: center
+		&:nth-of-type(2)
+			order: -1
+		&__top,
+		&__ttl
+			background-color: #333
+		&__ttl
+			padding: 20px 0
+			margin-bottom: 1px
+			border-bottom: 1px solid transparent
+		&__top
+			padding-top: 1px
+			border-bottom: 6px solid $accentColor
+		&__sub-ttl
+			padding: 15px 0
+			font-style: italic
+			color: #8d8d8d
+		&__ttl,
+		&__price,
+		&__sub-ttl--accent
+			color: #fff
+		&__sub-ttl--accent
+			padding-bottom: 9px
+			font-style: normal
+			font-family: $openSans
+			background-color: $accentColor
+		&__price,
+		&__sub-ttl
+			font-family: $raleway
+		&__price
+			padding: 10px 0
+			margin-top: 10px
+			font-size: 70px
+		&__line
+			padding: 12px
+			margin-bottom: 1px
+			background-color: #fff
+			color: #8e8f92
+			border-bottom: 1px solid transparent
+
+
+
 .custom
 	padding: clamp(30px,10vw,65px) 0 clamp(25px,10vw,50px)
 	background: url('../img/u25_state0-min.jpg') no-repeat center
@@ -507,6 +566,21 @@ textarea
 			max-width: 60%
 		&-right
 			margin-top: 0
+
+	.pricing
+		.cards-wrap
+			flex-direction: row
+			justify-content: space-between
+			align-items: flex-end
+		.card:nth-of-type(2)
+			order: 0
+			margin-left: 20px
+			margin-right: 20px
+
+
+
+
+
 
 @media screen and (min-width: 991px)
 
