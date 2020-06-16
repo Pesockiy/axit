@@ -334,12 +334,21 @@ textarea
 			background-color: $accentColor
 
 .tab__content
-	display: none
+	display: flex
 	flex-direction: column-reverse
 	margin-bottom: 30px
 	text-align: center
+	opacity: 0
+	height: 0
+	width: 0
+	overflow: hidden
+	visibility: hidden
+	transition: all .5s
 	&--active
-		display: flex
+		width: auto
+		height: auto
+		visibility: visible
+		opacity: 1
 	&-right
 		margin-top: 30px
 	.tab__ttl
