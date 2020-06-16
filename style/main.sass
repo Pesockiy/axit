@@ -6,6 +6,7 @@ $raleway: 'Raleway'
 
 
 $accentColor: #ff8b38
+$semiGreyColor: #f5f5f5
 $semiWhteOpacity: rgba(255,255,255,.75)
 
 @mixin sizing($min,$max,$type)
@@ -37,6 +38,14 @@ ul,
 ol
 	list-style-type: none
 
+.displayFlex
+	display: flex
+	&.colToRow
+		flex-direction: column
+		align-items: center
+		@media screen and (min-width: 767px)
+			flex-direction: row
+			justify-content: space-between
 
 
 .body
@@ -53,9 +62,8 @@ textarea
 	padding: 0 10px
 	margin: auto
 
-.h1
-	font-family: $raleway
-	font-size: clamp(24px,5vw,36px)
+.section:nth-of-type(even)
+	background-color: $semiGreyColor
 
 .btn,
 .tab__link
@@ -85,6 +93,15 @@ textarea
 .text-accent
 	color: $accentColor
 
+.text-center
+	text-align: center
+
+.textCenterToLeft
+	text-align: center
+	@media screen and (min-width: 575px)
+		text-align: left
+
+
 
 .socials
 	display: flex
@@ -98,9 +115,14 @@ textarea
 		fill: #ccc
 		transition: fill .3s
 
+.h1
+	font-family: $raleway
+	font-size: clamp(24px,5vw,36px)
+
 .heading-underlined
 	position: relative
 	padding-bottom: 30px
+	margin-bottom: 25px
 	&::after
 		content: ''
 		position: absolute
@@ -235,7 +257,6 @@ textarea
 		margin-right: auto
 	&__col-left
 		max-width: 515px
-		text-align: center
 	&__ttl,
 	&__text,
 	.logo
@@ -245,6 +266,7 @@ textarea
 	&__ttl::after
 		left: calc(50% - 32px)
 	&__text
+		margin-top: 35px
 		color: $semiWhteOpacity
 	&__btn
 		width: 100%
@@ -270,7 +292,7 @@ textarea
 			text-align: center
 			font-family: $openSansBold
 			font-size: 20px
-			background-color: #f5f5f5
+			background-color: $semiGreyColor
 
 .main-top
 	padding: 20px 0
@@ -286,9 +308,8 @@ textarea
 	&__text
 		font-size: 14px
 
-.features
+.abilities
 	padding: clamp(80px, 10vw, 150px) 0 clamp(60px, 10vw, 80px)
-	background-color: #f5f5f5
 
 .tabs-wrap
 	display: flex
@@ -330,26 +351,27 @@ textarea
 	&-link
 		margin-top: clamp(20px, 2vw, 35px)
 
+.features
+	padding: clamp(50px, 2vw, 105px) 0 clamp(40px, 10vw, 90px)
+	.container
+		align-content: center
+		align-items: center
+	&__img
+		display: block
+		width: 100%
+		max-width: 525px
+	&__text-wrap
+		max-width: 480px
+	&__text
+		margin-top: 25px
+
 .process
 	padding: clamp(50px,10vw,105px) 0 clamp(40px,10vw,60px)
-
-.process__item-wrap
-	display: flex
-	flex-direction: column
-	align-items: center
-
-.process__ttl,
-.process__text
-	text-align: center
-
-.process__text
-	margin-top: 25px
 
 .process__item
 	width: 100%
 	margin-top: clamp(50px,10vw,75px)
 	max-width: 360px
-	text-align: center
 	&-ttl,
 	.process__pic
 		margin-bottom: 20px
@@ -365,22 +387,14 @@ textarea
 
 .pricing
 	padding: clamp(50px,10vw,100px) 0 clamp(40px,10vw,90px)
-	background-color: #f5f5f5
-	&__ttl,
-	&__text
-		text-align: center
 	&__ttl
 		margin-bottom: 25px
 	.cards-wrap
 		margin-top: clamp(40px, 10vw, 75px)
-		display: flex
-		flex-direction: column
-		align-items: center
 	.card
 		width: 100%
 		max-width: 300px
 		margin-bottom: 30px
-		text-align: center
 		&:nth-of-type(2)
 			order: -1
 		&__top,
@@ -423,17 +437,11 @@ textarea
 
 .testimonials
 	padding: clamp(50px,10vw,100px) 0 clamp(40px,10vw,70px)
-	&__ttl,
-	&__text
-		text-align: center
 	&__text
 		margin-top: 25px
 
 .testimonial-wrap
 	margin-top: 50px
-	display: flex
-	flex-direction: column
-	align-items: center
 
 .testimonial
 	margin-bottom: 40px
@@ -444,7 +452,7 @@ textarea
 		padding: 22px 10px
 		margin-bottom: 23px
 		border-radius: 2px
-		background-color: #f5f5f5
+		background-color: $semiGreyColor
 		&::after
 			content: ''
 			z-index: -1
@@ -471,7 +479,6 @@ textarea
 	padding: clamp(30px,10vw,65px) 0 clamp(25px,10vw,50px)
 	background: url('../img/u25_state0-min.jpg') no-repeat center
 	background-size: cover
-	text-align: center
 	&__ttl
 
 		color: #fff
@@ -485,9 +492,6 @@ textarea
 
 .contact
 	padding: clamp(50px,10vw,90px) 0 clamp(40px,10vw,60px)
-	&__ttl,
-	&__text
-		text-align: center
 	&__text
 		margin: 22px 0
 		color: #c3c3c5
@@ -498,7 +502,6 @@ textarea
 
 .form
 	&__col-left
-		//margin-bottom: 20px
 	&__group
 		margin-bottom: 20px
 		.form__btn
@@ -541,6 +544,7 @@ textarea
 		color: #505050
 
 @media screen and (min-width: 575px)
+
 	.container
 		max-width: 1140px
 
@@ -553,32 +557,41 @@ textarea
 			flex-direction: row
 		&__col-right
 			max-width: 240px
+			margin-right: 0
 		&__col-left
 			margin-right: 30px
-			text-align: left
+
+	.features
+		.container
+			align-items: start
+			flex-direction: row
+		&:nth-of-type(even) .container
+			flex-direction: row-reverse
+		&:nth-of-type(even) .features__img-wrap
+			margin-left: clamp(40px,10vw,190px)
+		&:nth-of-type(odd) .features__img-wrap
+			margin-right: clamp(40px,10vw,190px)
+		&__ttl::after
+			left: 0
+
 
 	.pricing .card
 		max-width: 344px
-
-	.testimonial-wrap
-		flex-direction: row
-		justify-content: space-between
 
 	.testimonial:nth-of-type(even)
 		margin-right: 20px
 		margin-left: 20px
 
-
 	.contact__form
 		display: flex
 		justify-content: space-between
 		flex-flow: row wrap
+
 	.form
 		&__col-left
 			.form__group:last-of-type
 				margin-bottom: 0
 		&__col-right
-			//margin-left: clamp(20px,6vw,65px)
 			.form__group
 				margin: 0
 				height: 100%
@@ -658,27 +671,11 @@ textarea
 		&-right
 			margin-top: 0
 
-
-	.process__item-wrap
-		flex-direction: row
-		justify-content: space-between
-
 	.process__item
 		margin-bottom: 40px
 		&:nth-of-type(even)
 			margin-left: 20px
 			margin-right: 20px
-		&-ttl,
-		.process__pic
-			margin-bottom: 20px
-		.process__pic
-			margin-bottom: 20px
-			fill: $accentColor
-			border-radius: 50%
-			width: 70px
-			height: 70px
-			padding: 18px
-			border: 2px solid $accentColor
 
 
 	.pricing
@@ -690,10 +687,6 @@ textarea
 			order: 0
 			margin-left: 20px
 			margin-right: 20px
-
-
-
-
 
 
 @media screen and (min-width: 991px)
