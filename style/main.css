@@ -309,6 +309,10 @@ textarea {
   background-color: #fff;
 }
 
+.main__mt20 {
+  margin-top: 20px;
+}
+
 .home {
   padding-top: clamp(40px, 10vw, 110px);
   padding-bottom: clamp(40px, 10vw, 110px);

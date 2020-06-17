@@ -23,6 +23,7 @@ let animatedHeader = (function () {
 
 	let docElem = document.documentElement,
 		header = document.querySelector('.header'),
+		main = document.querySelector('.main'),
 		scrolling = false,
 		valueToChange = 10;
 
@@ -44,8 +45,10 @@ let animatedHeader = (function () {
 
 		if (sY >= valueToChange) {
 			header.classList.add('header--shrink');
+			main.classList.add('main__mt20');
 		} else {
 			header.classList.remove('header--shrink');
+			main.classList.remove('main__mt20');
 		}
 		scrolling = false;
 	}
@@ -90,6 +93,7 @@ for (let link of links) {
 		if (navWrap.classList.contains('nav-wrap--active')) {
 			navWrap.classList.remove('nav-wrap--active');
 			menuButton.classList.remove('menu-hamburger--open');
+			body.classList.remove('overflowYHidden');
 		};
 		smoothScrollTo(sectionToScroll.offsetTop, 500);
 
