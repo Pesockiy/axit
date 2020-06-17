@@ -25,7 +25,7 @@ let animatedHeader = (function () {
 		header = document.querySelector('.header'),
 		main = document.querySelector('.main'),
 		scrolling = false,
-		valueToChange = 10;
+		valueToChange = 20;
 
 	function init() {
 		window.addEventListener('scroll', function (event) {
