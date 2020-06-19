@@ -359,10 +359,15 @@ textarea {
 }
 .home__form {
   margin: 30px auto;
+  overflow: hidden;
   border-radius: 3px;
   background-color: #fff;
 }
-.home__form .form__group,
+.home__form .form__input {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.home__form .form__group:not(:last-of-type),
 .home__form .form__ttl {
   margin-bottom: clamp(20px, 5vw, 40px);
 }
@@ -373,8 +378,11 @@ textarea {
   margin-left: clamp(20px, 5vw, 40px);
   margin-right: clamp(20px, 5vw, 40px);
 }
+.home__form .form__group:last-of-type {
+  margin-bottom: 0;
+}
 .home__form .form__ttl {
-  padding: 17px;
+  padding: 14px 0 15px;
   text-align: center;
   font-family: "Open Sans Bold";
   font-size: 20px;
