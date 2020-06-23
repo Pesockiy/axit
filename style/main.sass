@@ -47,6 +47,9 @@ ol
 			flex-direction: row
 			justify-content: space-between
 
+html,
+body
+	min-height: 100vh
 
 .body
 	font-family: $openSans
@@ -64,6 +67,9 @@ textarea
 
 .section:nth-of-type(even)
 	background-color: $semiGreyColor
+
+.svg-b
+	display: none
 
 .btn,
 .tab__link
@@ -109,9 +115,9 @@ textarea
 	&__link:hover &__pic
 		fill: #000
 	&__pic
+		width: 100%
 		height: 100%
-		max-height: 42px
-		max-height: 50px
+		max-height: 30px
 		fill: #ccc
 		transition: fill .3s
 
@@ -186,7 +192,7 @@ textarea
 		max-width: 70px
 		height: auto
 
-.menu-hamburger
+.hamburger
 	position: relative
 	align-items: center
 	align-self: center
@@ -215,7 +221,7 @@ textarea
 		background-color: $accentColor
 		transition: all .3s
 
-	&--open .menu-hamburger__line
+	&--open .hamburger__line
 		opacity: 0
 		visibility: hidden
 		transition: all .3s
@@ -381,6 +387,30 @@ textarea
 	&__text
 		margin-top: 25px
 
+.text-block
+	position: relative
+	margin-top: 35px
+	padding-left: 75px
+	text-align: left
+	&::before
+		content: ''
+		position: absolute
+		top: 14px
+		left: 12px
+		width: 21px
+		height: 17px
+		background-color: $accentColor
+		-webkit-mask-image: url('../img/svg/cloud-download-alt-solid-min.svg')
+	&::after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 42px
+		height: 42px
+		border-radius: 50%
+		border: 2px solid $accentColor
+
 .process
 	padding: clamp(50px,10vw,105px) 0 clamp(40px,10vw,60px)
 
@@ -456,10 +486,27 @@ textarea
 	&__text
 		margin-top: 25px
 
-.testimonial-wrap
+.slider-btn
+	width: 30px
+	height: 30px
+	line-height: 30px
+	color: #fff
+	border: none
+	border-radius: 50%
+	background: radial-gradient(circle at top center,rgb(230,230,230) 10%,rgb(120,120,120))
+	&.next
+		margin-left: 20px
+	&.prev
+		margin-right: 20px
+
+.testimonial-wrap-desktop
+	display: none
+
+.testimonial-inner
 	margin-top: 50px
 
 .testimonial
+	margin: 0 auto
 	margin-bottom: 40px
 	width: 100%
 	max-width: 273px
@@ -486,6 +533,7 @@ textarea
 	&__img
 		margin-right: 15px
 	&__name
+		text-align: left
 		font-size: 20px
 		font-family: $openSansBold
 	&__job
@@ -628,7 +676,7 @@ textarea
 @media screen and (min-width: 767px)
 
 	.header
-		.menu-hamburger
+		.hamburger
 			display: none
 		.nav
 			&-wrap
@@ -693,6 +741,10 @@ textarea
 			margin-left: 20px
 			margin-right: 20px
 
+	.testimonial-wrap-desktop
+		display: block
+	.testimonial-wrap-mobile
+		display: none
 
 	.pricing
 		.cards-wrap
@@ -706,6 +758,9 @@ textarea
 
 
 @media screen and (min-width: 991px)
+	.socials
+		&__pic
+			max-height: 46px
 
 	.form
 		&__col-left

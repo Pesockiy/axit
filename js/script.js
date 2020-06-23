@@ -1,18 +1,18 @@
-let menuButton = document.querySelector('.menu-hamburger'),
+let menuButton = document.querySelector('.hamburger'),
 	body = document.querySelector('body'),
 	navWrap = document.querySelector('.nav-wrap');
 
 
 menuButton.addEventListener('click', function () {
 
-	if (!this.classList.contains('menu-hamburger--open')) {
+	if (!this.classList.contains('hamburger--open')) {
 
-		this.classList.add('menu-hamburger--open');
+		this.classList.add('hamburger--open');
 		body.classList.add('overflowYHidden');
 		navWrap.classList.add('nav-wrap--active');
 
 	} else {
-		this.classList.remove('menu-hamburger--open');
+		this.classList.remove('hamburger--open');
 		body.classList.remove('overflowYHidden');
 		navWrap.classList.remove('nav-wrap--active');
 	}
@@ -41,7 +41,7 @@ let animatedHeader = (function () {
 	}
 
 	function scrollPage() {
-		var sY = scrollY();
+		let sY = scrollY();
 
 		if (sY >= valueToChange) {
 			header.classList.add('header--shrink');
@@ -92,7 +92,7 @@ for (let link of links) {
 
 		if (navWrap.classList.contains('nav-wrap--active')) {
 			navWrap.classList.remove('nav-wrap--active');
-			menuButton.classList.remove('menu-hamburger--open');
+			menuButton.classList.remove('hamburger--open');
 			body.classList.remove('overflowYHidden');
 		};
 		smoothScrollTo(sectionToScroll.offsetTop, 500);
@@ -133,3 +133,24 @@ smoothScrollTo = (function () {
 		return timer;
 	};
 }());
+
+
+
+//slider
+
+const mySiema = new Siema({
+	duration: 400,
+	easing: 'ease-out',
+	perPage: 1,
+	draggable: true,
+	loop: true
+});
+
+document.querySelector('.prev').addEventListener('click', function () {
+	mySiema.prev()
+});
+document.querySelector('.next').addEventListener('click', function () {
+	mySiema.next()
+});
+
+
