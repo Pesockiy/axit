@@ -293,16 +293,16 @@ textarea
 			padding-bottom: 4px
 		.form__group:not(:last-of-type),
 		.form__ttl
-			margin-bottom: clamp(20px,5vw,40px)
+			margin-bottom: clamp(20px,3vw,40px)
 		.form__group:nth-of-type(3)
-			margin-bottom: clamp(20px,5vw,50px)
+			margin-bottom: clamp(20px,3vw,50px)
 		.form__group:not(:last-of-type)
 			margin-left: clamp(20px,5vw,40px)
 			margin-right: clamp(20px,5vw,40px)
 		.form__group:last-of-type
 			margin-bottom: 0
 		.form__ttl
-			padding: 14px 0 15px
+			padding: 14px 10px 15px
 			text-align: center
 			font-family: $openSansBold
 			font-size: 20px
@@ -382,6 +382,7 @@ textarea
 		display: block
 		width: 100%
 		max-width: 525px
+		min-width: 300px
 	&__text-wrap
 		max-width: 480px
 	&__text
@@ -410,6 +411,8 @@ textarea
 		height: 42px
 		border-radius: 50%
 		border: 2px solid $accentColor
+	&__text
+		font-size: .8em
 
 .process
 	padding: clamp(50px,10vw,105px) 0 clamp(40px,10vw,60px)
@@ -565,7 +568,6 @@ textarea
 	margin-top: 50px
 
 .form
-	&__col-left
 	&__group
 		margin-bottom: 20px
 		.form__btn
@@ -632,9 +634,9 @@ textarea
 		&:nth-of-type(even) .container
 			flex-direction: row-reverse
 		&:nth-of-type(even) .features__img-wrap
-			margin-left: clamp(40px,10vw,190px)
+			margin-left: clamp(40px,5vw,190px)
 		&:nth-of-type(odd) .features__img-wrap
-			margin-right: clamp(40px,10vw,190px)
+			margin-right: clamp(40px,5vw,190px)
 		&__ttl::after
 			left: 0
 
